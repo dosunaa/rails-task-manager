@@ -1,2 +1,15 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<div class='container'>
+  <h1><%= @task.title %> | <%= link_to 'edit', edit_task_path(@task) %> | <%= link_to 'delete', method: :delete %></h1>
+  <p> <%= @task.details %></p>
+
+  <% if @task.completed %>
+    <i class="fa fa-check-square-o"></i> This task is completed
+    <% else %>
+    <i class="fa fa-square-o"></i> This task is not completed yet
+  <% end %>
+
+</div>
+<br>
+<div>
+  <p class='container'><%= link_to 'All Tasks', tasks_path %></p>
+</div>

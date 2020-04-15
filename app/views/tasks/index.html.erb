@@ -1,12 +1,16 @@
-<div>
+<div class='container'>
   <h1>Tasks</h1>
-    <div>
+    <div class='container'>
       <% @tasks.each do |task| %>
         <div>
-          <h2><%= task.title %></h2>
-          <p><%= task.details %></p>
+          <p><%= check_box_tag("completed","",task.completed) %>  <%=link_to task.title, task %> <%= link_to '🗑️', task, method: "delete",  data: { confirm: "Delete #{task.title}?" }%></p>
+          <% # link_to task.title, task_path(task) %>
         </div>
       <% end %>
+      <div>
+        <br>
+        <p><%= link_to '+ Add New Task', new_task_url %></p>
+      </div>
     </div>
 </div>
 
